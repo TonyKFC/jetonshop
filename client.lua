@@ -31,7 +31,7 @@ exports.qtarget:AddBoxZone("jetonshop", vector3(1116.092285, 220.035172, -49.442
 			{
 				event = "jetonshop:open",
 				icon = "fas fa-coins",
-				label = "Buy chips",
+				label = "Exchange Chips",
 			},
  
 		},
@@ -53,8 +53,8 @@ RegisterNetEvent("jetonshop:open", function()
  
             {
                 title = '🛒Buy',
-                menu = 'jetonshopopen2',
-                description = 'buy chips!', 
+                description = 'buy chips!',
+                event = 'jetonshop:buyChips'
                 
             },
             {
@@ -62,73 +62,29 @@ RegisterNetEvent("jetonshop:open", function()
                 description = 'sell chips',
                 event = 'jetonshop:sell', 
             }
-        },
-        {
-            id = 'jetonshopopen2',
-            title = 'Buy chips',
-            menu = 'jetonshop',
-            options = {
-                {
-                    title = '🛒Chips',
-                    description = 'Buy x10',
-                    event = 'jetonshop:jetonten', 
-                },
-                {
-                    title = '🛒Chips',
-                    description = 'Buy x100',
-                    event = 'jetonshop:jetontenn', 
-                },
-                {
-                    title = '🛒Chips',
-                    description = 'Buy x1000',
-                    event = 'jetonshop:jetontennn', 
-                },
-                {
-                    title = '🛒Chips',
-                    description = 'Buy x10000',
-                    event = 'jetonshop:jetontennnn', 
-                },
-            }
         }
     })
     lib.showContext('jetonshop')
 
 end)
 
-   
+AddEventHandler('jetonshop:buyChips', function()
+    local input = lib.inputDialog('Buy Chips / $100 each', {'Amount'})
+    if input then
+        local amount = math.floor(input[1])
+        if amount > 0 then
+            TriggerServerEvent('jeton:add', amount)
+        else
+            lib.notify({
+                title = 'Invalid Amount',
+                description = 'Please enter a valid amount',
+                type = 'error'
+            })
+        end
+    end
+end)
 
 
-RegisterNetEvent('jetonshop:jetonten')
-AddEventHandler('jetonshop:jetonten', function()
-
-    TriggerServerEvent('jeton:add')
-            
-end) 
-
-RegisterNetEvent('jetonshop:jetontenn')
-AddEventHandler('jetonshop:jetontenn', function()
-
-    TriggerServerEvent('jeton:addd')
-            
-end) 
-
-RegisterNetEvent('jetonshop:jetontennn')
-AddEventHandler('jetonshop:jetontennn', function()
-
-    TriggerServerEvent('jeton:adddd')
-            
-end) 
-
-
-RegisterNetEvent('jetonshop:jetontennnn')
-AddEventHandler('jetonshop:jetontennnn', function()
-
-    TriggerServerEvent('jeton:addddd')
-            
-end) 
-
-
-RegisterNetEvent('jetonshop:sell')
 AddEventHandler('jetonshop:sell', function()
 
     TriggerServerEvent('jeton:sellall')
