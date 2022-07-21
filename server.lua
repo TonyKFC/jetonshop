@@ -11,7 +11,7 @@ AddEventHandler('jeton:add', function(amount)
 		xPlayer.removeAccountMoney('money', price)
 		xPlayer.addInventoryItem('jeton', amount)
 		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_casino', function(account)  
-			account.addMoney(money)
+			account.addMoney(price)
 		end)
 	else
 		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
