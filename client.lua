@@ -84,7 +84,7 @@ AddEventHandler('jetonshop:buyChips', function()
     end
 end)
 
-
+ 
 AddEventHandler('jetonshop:sell', function()
 
     TriggerServerEvent('jeton:sellall')
