@@ -31,7 +31,7 @@ exports.qtarget:AddBoxZone("jetonshop", vector3(1116.092285, 220.035172, -49.442
 			{
 				event = "jetonshop:open",
 				icon = "fas fa-coins",
-				label = "购买筹码",
+				label = "Buy chips",
 			},
  
 		},
@@ -39,62 +39,12 @@ exports.qtarget:AddBoxZone("jetonshop", vector3(1116.092285, 220.035172, -49.442
 })
 
  
-
---[[RegisterNetEvent("jetonshop:open", function()
-    TriggerEvent("nh-context:createMenu", {
-        {
-            header = "商店",
-        },
-        {
-            header = "筹码商店",
-            context = "🛒购买筹码",
-            event = "jetonshop:open2", 
-       
-        },
-        {
-            header = "筹码商店",
-            context = "💰出售筹码",
-            event = "jetonshop:sell", 
-       
-        }
-    })
-end)
-
- RegisterNetEvent('jetonshop:open2', function()
-    TriggerEvent('nh-context:createMenu', {
-        {
-            header = "< 返回",
-            event = "jetonshop:open"
-        },
-        {
-            header = "筹码",
-            context = "🛒10个",
-            event = "jetonshop:jetonten", 
-        },
-        {
-            header = "筹码",
-            context = "🛒100个",
-            event = "jetonshop:jetontenn", 
-        },
-        {
-            header = "筹码",
-            context = "🛒1000个",
-            event = "jetonshop:jetontennn", 
-        },
-        {
-            header = "筹码",
-            context = "🛒10000个",
-            event = "jetonshop:jetontennnn", 
-        },
-    })
-end)]]
-
 RegisterNetEvent("jetonshop:open", function() 
 
      
     lib.registerContext({
         id = 'jetonshop',
-        title = '赌场商店',
+        title = 'Casino shop',
         onExit = function()
             print('Hello there')
         end,
@@ -102,42 +52,40 @@ RegisterNetEvent("jetonshop:open", function()
     
  
             {
-                title = '🛒购买',
+                title = '🛒Buy',
                 menu = 'jetonshopopen2',
-                description = '购买筹码!',
-                --metadata = {'购买筹码'},
+                description = 'buy chips!', 
                 
             },
             {
-                title = '💰出售',
-                description = '出售筹码',
-                event = 'jetonshop:sell',
-              --  metadata = {'出售筹码'}
+                title = '💰Sell',
+                description = 'sell chips',
+                event = 'jetonshop:sell', 
             }
         },
         {
             id = 'jetonshopopen2',
-            title = '购买筹码',
+            title = 'Buy chips',
             menu = 'jetonshop',
             options = {
                 {
-                    title = '🛒筹码',
-                    description = '购买10筹码',
+                    title = '🛒Chips',
+                    description = 'Buy x10',
                     event = 'jetonshop:jetonten', 
                 },
                 {
-                    title = '🛒筹码',
-                    description = '购买100筹码',
+                    title = '🛒Chips',
+                    description = 'Buy x100',
                     event = 'jetonshop:jetontenn', 
                 },
                 {
-                    title = '🛒筹码',
-                    description = '购买1000筹码',
+                    title = '🛒Chips',
+                    description = 'Buy x1000',
                     event = 'jetonshop:jetontennn', 
                 },
                 {
-                    title = '筹码',
-                    description = '购买10000筹码',
+                    title = '🛒Chips',
+                    description = 'Buy x10000',
                     event = 'jetonshop:jetontennnn', 
                 },
             }
