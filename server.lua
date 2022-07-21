@@ -34,7 +34,7 @@ AddEventHandler('jeton:sellall', function()
 		account.removeMoney(meat_jeton * jeton_aPrice)
 		end)
     else
-		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough jeton!', length = 2500})
     end
  
  
