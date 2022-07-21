@@ -28,7 +28,7 @@ AddEventHandler('jeton:sellall', function()
  
     if meat_jeton > 0  then
 		xPlayer.removeInventoryItem('jeton', meat_jeton)
-        xPlayer.addMoney(meat_jeton * jeton_aPrice) 
+        	xPlayer.addMoney(meat_jeton * jeton_aPrice) 
 		TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'success', text = 'you have sold the chips and got $'..  jeton_aPrice * meat_jeton..'', length = 2500})
 		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_casino', function(account) 
 		account.removeMoney(meat_jeton * jeton_aPrice)
