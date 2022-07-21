@@ -16,7 +16,9 @@ AddEventHandler('jeton:add', function()
 		end)
 
 	else	
-		TriggerClientEvent('okokNotify:Alert', source, "通知", "你没有足够的钱", 5000, 'error')
+		 
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
+
 	end
  	
 end)
@@ -36,7 +38,7 @@ AddEventHandler('jeton:addd', function()
 			account.addMoney(money)
 			end)
 		else	
-			TriggerClientEvent('okokNotify:Alert', source, "通知", "你没有足够的钱", 5000, 'error')
+			TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
 		end
  
 end)
@@ -57,7 +59,7 @@ AddEventHandler('jeton:adddd', function()
 			end)
  
 		else	
-			TriggerClientEvent('okokNotify:Alert', source, "通知", "你没有足够的钱", 5000, 'error')
+			TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
 		end
 	 
 end)
@@ -77,7 +79,7 @@ AddEventHandler('jeton:addddd', function()
 			account.addMoney(money)	 
 		end)
 		else	
-			TriggerClientEvent('okokNotify:Alert', source, "通知", "你没有足够的钱", 5000, 'error')
+			TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
 		end
 	 
 end)
@@ -94,12 +96,12 @@ AddEventHandler('jeton:sellall', function()
     if meat_jeton > 0  then
 		xPlayer.removeInventoryItem('jeton', meat_jeton)
         xPlayer.addMoney(meat_jeton * jeton_aPrice) 
-        TriggerClientEvent('okokNotify:Alert', xPlayer.source, "通知", "你已经卖了筹码,并得到 $"..  jeton_aPrice * meat_jeton.."", 5000, 'success')
+		TriggerClientEvent('mythic_notify:client:SendAlert', xPlayer.source, { type = 'success', text = 'you have sold the chips and got $'..  jeton_aPrice * meat_jeton..'', length = 2500})
 		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_casino', function(account) 
 		account.removeMoney(meat_jeton * jeton_aPrice)
 		end)
     else
-        TriggerClientEvent('okokNotify:Alert', source, "通知", "你没有足够的筹码", 5000, 'error')
+		TriggerClientEvent('mythic_notify:client:SendAlert', source, { type = 'error', text = 'you dont have enough money!', length = 2500})
     end
  
  
