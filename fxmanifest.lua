@@ -21,5 +21,6 @@ shared_scripts {
 
 dependencies {
 	'mythic_notify',
-	'ox_lib'
+	'ox_lib',
+	'qtarget'
 }
