@@ -9,7 +9,7 @@ AddEventHandler('jeton:add', function(amount)
 	local price = math.floor(amount * 100)
 	if xMoney >= price then
 		xPlayer.removeAccountMoney('money', price)
-		xPlayer.addInventoryItem(jeton, amount)
+		xPlayer.addInventoryItem('jeton', amount)
 		TriggerEvent('esx_addonaccount:getSharedAccount', 'society_casino', function(account)  
 			account.addMoney(money)
 		end)
